@@ -1,0 +1,61 @@
+#main{
+    display: -ms-grid;
+    display: inline-block;
+    -ms-grid-columns: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
+    gap: 5px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+    padding: 20px;
+}
+
+.dishRecipe{    
+    margin-top: 50px;
+    border: 1px solid rgb(177, 156, 156);
+    box-shadow: 0 0 10px 1px rgb(177, 156, 156);
+    padding: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.formgrid > *{
+    display: -ms-grid;
+    display: inline-block;
+    -ms-grid-columns: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
+    gap: 5px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+    padding: 20px;
+}
+
+#InputForm div{
+    margin-top: 50px;
+    border: 1px solid rgb(177, 156, 156);
+    box-shadow: 0 0 10px 1px rgb(177, 156, 156);
+    padding: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#InputForm p, span{
+    text-align: center;
+}

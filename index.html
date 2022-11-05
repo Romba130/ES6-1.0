@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Kitchen</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <script src="Classes.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script>
+        function init(){
+            DishesArray = {};
+            //name, Ingredients, time, cookingmethod, image
+            firstdish = new DishRecipe("Pasta & Cream", [ingredientJson[0], ingredientJson[1], ingredientJson[2]],20,"Slow", "https://vikalinka.com/wp-content/uploads/2018/09/pasta-cream-sauce-6-Edit.jpg");
+            DishesArray[firstdish.name] = firstdish;
+            document.getElementById("main").innerHTML += firstdish.RenderDish();
+        }
+
+        function AddNewRecipe(){
+            //#region Create Element
+            str = " ";
+            str += `
+            <label for='Fname'>Recipe Name:</label><br>
+            <input type='text' id=RecipeName><br>
+            <label for='Fname'>Recipe Cooking Method:</label><br>
+            <input type='text' id=RecipeCookingMethod><br>
+            <label for='Fname'>Recipe Cooking Time:</label><br>
+            <input type='text' id=RecipeCookingTime><br>
+            <label for='Fname'>Recipe Image Url:</label><br>
+            <input type='text' id=RecipeImageUrl><br>
+            <button onclick='CreateRecipe()'>Create Recipe</button>
+            <button>Close</button>`
+            document.getElementById("InputForm").innerHTML =str;
+            //#endregion
+            let IngredientStr = '';
+            let formgrid = document.createElement('div').setAttribute('class','formgrid');
+            let IngredientLentgh = ingredientJson.length + 1;
+            ingredientJson.forEach(IngredientElement => {
+                IngredientStr += 
+                `<label>add
+                 <input id="food_${IngredientLentgh}" type="checkbox">
+                 <div id="item${IngredientLentgh}">
+                 <p>ingredient details </p>
+                 <img src="${IngredientElement.image}" alt="${IngredientElement.name} picutre">
+                 <span> ${IngredientElement.name}</span>
+                 <span> calories: ${IngredientElement.calories}</span>
+                 </div>
+                </label>`;   
+                IngredientLentgh += 1;
+            });
+
+            document.getElementById('InputForm').innerHTML += IngredientStr;
+        }
+        function CreateRecipe(){
+            let name = document.getElementById('RecipeName').value;
+            let cookingmethod = document.getElementById('RecipeCookingMethod').value;
+            let cookingtime = document.getElementById('RecipeCookingTime').value;
+            let image = document.getElementById('RecipeImageUrl').value;
+            let idNum = DishesArray.length + 1;
+            let NewDish = new DishRecipe(name,[],cookingtime,cookingmethod,image);
+            DishesArray[NewDish.name] = NewDish;
+            //document.getElementById("main").innerHTML = " ";
+            //document.getElementById("main").innerHTML = DishStr;
+            
+        }
+
+        function getIngredients(name) {
+            let ingrs = dishes[name].ingredients;
+            document.getElementById('popupElements').innerHTML = "";
+            str = '';
+            str += `<h1>Ingredients:</h1><br/>`;
+            document.getElementById('popupModal').style.display = 'block';
+            for (i in ingrs) {
+                ingObj = new ingredients(ingrs[i].id, ingrs[i].name, ingrs[i].image, ingrs[i].calories);
+                str += `<div class="ingredient col-md-4">`;
+                str += ingObj.show();
+            }
+            document.getElementById('popupElements').innerHTML += str;
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div class="container">
+        <div class="col-md-12">
+        <h1 class="center">Dishes</h1>
+        <div id="newElements">
+            <button onclick="AddNewRecipe()">New Recipe</button>
+            <button onclick="AddNewIngredient()">New Ingredient</button>
+        </div>
+        <div id="InputForm">
+
+        </div>
+    </div>
+        <div id="main">
+        </div>
+    </div>
+        <div id="popupModal" class="modal" style="display: block;">
+            <div class="modal-content">
+                <span class="close">x</span>
+                <h1>ingredient details</h1>
+                <div id="popupElements"></div>
+            </div>
+        </div>
+</body>
+</html>

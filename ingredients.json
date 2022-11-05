@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "name":"Pasta",
+        "image":"https://d2wrwj382xgrci.cloudfront.net/Pictures/1024x536/9/2/2/8922_pasta06.04_750618.jpg",
+        "calories":80
+    },
+    {
+        "id":2,
+        "name":"Tomato",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
+        "calories":120
+    },
+    {
+        "id":3,
+        "name":"Cream sauce",
+        "image":"https://chen-chesed.com/wp-content/uploads/2020/12/שמנת-בישו.jpg",
+        "calories":80
+    }
+]
