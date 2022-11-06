@@ -59,3 +59,15 @@ img {
 #InputForm p, span{
     text-align: center;
 }
+.button {
+    cursor: pointer;
+    font-size: 18px;
+    width: 150px;
+    height: 150px;
+    background: salmon;
+    border: none;
+    padding: 50px 10px;
+    border-radius: 50%;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+  }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Kitchen</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>S
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
     <script src="Classes.js"></script>
@@ -23,16 +24,16 @@
             //#region Create Element
             str = " ";
             str += `
-            <label for='Fname'>Recipe Name:</label><br>
-            <input type='text' id=RecipeName><br>
-            <label for='Fname'>Recipe Cooking Method:</label><br>
-            <input type='text' id=RecipeCookingMethod><br>
-            <label for='Fname'>Recipe Cooking Time:</label><br>
-            <input type='text' id=RecipeCookingTime><br>
-            <label for='Fname'>Recipe Image Url:</label><br>
-            <input type='text' id=RecipeImageUrl><br>
+            <label for='Fname'><br>Recipe Name:</label><br><br>
+            <input type='text' id=RecipeName><br><br>
+            <label for='Fname'>Recipe Cooking Method:</label><br><br>
+            <input type='text' id=RecipeCookingMethod><br><br>
+            <label for='Fname'>Recipe Cooking Time:</label><br><br>
+            <input type='text' id=RecipeCookingTime><br><br>
+            <label for='Fname'>Recipe Image Url:</label><br><br>
+            <input type='text' id=RecipeImageUrl><br><br>
             <button onclick='CreateRecipe()'>Create Recipe</button>
-            <button>Close</button>`
+            <button onclick='Close()'>Close</button>`
             document.getElementById("InputForm").innerHTML =str;
             //#endregion
             let IngredientStr = '';
@@ -40,7 +41,7 @@
             let IngredientLentgh = ingredientJson.length + 1;
             ingredientJson.forEach(IngredientElement => {
                 IngredientStr += 
-                `<label>add
+                `<label><br/>add
                  <input id="food_${IngredientLentgh}" type="checkbox">
                  <div id="item${IngredientLentgh}">
                  <p>ingredient details </p>
@@ -62,6 +63,7 @@
             let idNum = DishesArray.length + 1;
             let NewDish = new DishRecipe(name,[],cookingtime,cookingmethod,image);
             DishesArray[NewDish.name] = NewDish;
+            console.log();
             //document.getElementById("main").innerHTML = " ";
             //document.getElementById("main").innerHTML = DishStr;
             
@@ -80,6 +82,9 @@
             }
             document.getElementById('popupElements').innerHTML += str;
         }
+        function Close(){
+            this.close
+        }
     </script>
 </head>
 <body onload="init()">
@@ -87,8 +92,8 @@
         <div class="col-md-12">
         <h1 class="center">Dishes</h1>
         <div id="newElements">
-            <button onclick="AddNewRecipe()">New Recipe</button>
-            <button onclick="AddNewIngredient()">New Ingredient</button>
+            <button class="button" onclick="AddNewRecipe()">New Recipe</button>
+            <button class="button" onclick="AddNewIngredient()">New Ingredient</button>
         </div>
         <div id="InputForm">
 
