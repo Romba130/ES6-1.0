@@ -24,6 +24,7 @@
             //#region Create Element
             str = " ";
             str += `
+            <div id="temp">
             <label for='Fname'><br>Recipe Name:</label><br><br>
             <input type='text' id=RecipeName><br><br>
             <label for='Fname'>Recipe Cooking Method:</label><br><br>
@@ -33,7 +34,8 @@
             <label for='Fname'>Recipe Image Url:</label><br><br>
             <input type='text' id=RecipeImageUrl><br><br>
             <button onclick='CreateRecipe()'>Create Recipe</button>
-            <button onclick='Close()'>Close</button>`
+            <button onclick='Close()'>Close</button>
+            </div>`
             document.getElementById("InputForm").innerHTML =str;
             //#endregion
             let IngredientStr = '';
@@ -64,8 +66,9 @@
             let NewDish = new DishRecipe(name,[],cookingtime,cookingmethod,image);
             DishesArray[NewDish.name] = NewDish;
             console.log();
-            //document.getElementById("main").innerHTML = " ";
-            //document.getElementById("main").innerHTML = DishStr;
+            
+            document.getElementById("main").innerHTML += NewDish.RenderDish();;
+            document.getElementById("temp").innerHTML.RemoveDiv();
             
         }
 

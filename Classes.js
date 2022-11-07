@@ -30,6 +30,7 @@ class DishRecipe{
         });
         return totalCalories;
     }
+
 }
 
 class Ingredients{
@@ -46,4 +47,8 @@ class Ingredients{
         <span>calories: ${this.calories}</span>
         </div>`;
     }
+     RemoveDiv() {
+        const e = getElementById("temp");
+        element.empty();
+      }
 }
