@@ -67,9 +67,10 @@
             DishesArray[NewDish.name] = NewDish;
             console.log();
             
-            document.getElementById("main").innerHTML += NewDish.RenderDish();;
-            document.getElementById("temp").innerHTML.RemoveDiv();
+            document.getElementById("main").innerHTML += NewDish.RenderDish();
+            //document.getElementById("temp").innerHTML += ' ';
             
+            document.getElementById('InputForm').style.display = 'none';      
         }
 
         function getIngredients(name) {
