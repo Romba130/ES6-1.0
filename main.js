@@ -1,4 +1,4 @@
-const ingredientJson = [
+var ingredientJson = [
     {
         id: 1,
         name: "Bacon",
@@ -47,11 +47,11 @@ function AddNewIngredient(){
     //#endregion
 }
 function CreateIngredient(){
-    const IngredientNameValue = document.getElementById('IngredientName').value;
-    const IngredientImageValue = document.getElementById('IngredientImageUrl').value;
-    const IngredientCaloriesValue = document.getElementById('IngredientCalories').value;
-    const IngredientCount = ingredientsjson.length+1;
-    var obj = new Ingredient(IngredientCount, IngredientNameValue, IngredientImageValue, IngredientCaloriesValue);
+    let IngredientNameValue = document.getElementById('IngredientName').value;
+    let IngredientImageValue = document.getElementById('IngredientImageUrl').value;
+    let IngredientCaloriesValue = document.getElementById('IngredientCalories').value;
+    let IngredientCount = ingredientsjson.length+1;
+    let obj = new Ingredient(IngredientCount, IngredientNameValue, IngredientImageValue, IngredientCaloriesValue);
     ingredientsjson.push((obj)); 
     console.log("work");
 }
